@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(160deg,#081226,#10284d);
+
+    color:#fff;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 15px;
+
+}
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#233d6d 0%,transparent 45%),
+    radial-gradient(circle at bottom,#1d2d53 0%,transparent 45%);
+
+    z-index:-1;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo{
+
+    font-size:60px;
+
+    margin-bottom:10px;
+
+}
+
+.header h1{
+
+    font-size:58px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+.header h2{
+
+    color:#ff88b2;
+
+    font-weight:500;
+
+    margin-top:5px;
+
+}
+
+.profile{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-top:25px;
+
+    border:5px solid white;
+
+    box-shadow:0 0 30px rgba(255,255,255,.25);
+
+}
+
+.cards{
+
+    display:flex;
+
+    gap:20px;
+
+    margin:20px 0;
+
+}
+
+.half{
+
+    flex:1;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.card h3{
+
+    color:#ff8eb7;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+.verse{
+
+    font-size:22px;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+}
+
+.card span{
+
+    color:#ff8eb7;
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:#ddd;
+
+}
+
+.numbers{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    text-align:center;
+
+}
+
+.numbers span{
+
+    display:block;
+
+    font-size:55px;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+.numbers small{
+
+    color:#ff8eb7;
+
+    font-size:17px;
+
+}
+
+#loveDays{
+
+    text-align:center;
+
+}
+
+.loveNumber{
+
+    font-size:80px;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+#clock{
+
+    text-align:center;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+}
+
+#date{
+
+    margin-top:15px;
+
+    text-align:center;
+
+    color:#d9d9d9;
+
+    font-size:20px;
+
+}
+
+textarea{
+
+    width:100%;
+
+    height:170px;
+
+    border:none;
+
+    resize:none;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    font-size:18px;
+
+    outline:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    margin-bottom:20px;
+
+}
+
+textarea::placeholder{
+
+    color:#bbb;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#ff77a8;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#ff5f98;
+
+    transform:scale(1.02);
+
+}
+
+small{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#bfbfbf;
+
+}
+
+#quote{
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-style:italic;
+
+    line-height:1.8;
+
+}
+
+footer{
+
+    margin:30px 0;
+
+    text-align:center;
+
+    color:#ddd;
+
+    font-size:22px;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.cards{
+
+    flex-direction:column;
+
+}
+
+.header h1{
+
+    font-size:48px;
+
+}
+
+.profile{
+
+    width:140px;
+
+    height:140px;
+
+}
+
+.numbers span{
+
+    font-size:38px;
+
+}
+
+#clock{
+
+    font-size:42px;
+
+}
+
+.loveNumber{
+
+    font-size:60px;
+
+}
+
+.card{
+
+    padding:20px;
+
+}
+
+.card h3{
+
+    font-size:20px;
+
+}
+
+.verse{
+
+    font-size:18px;
+
+}
+
+#quote{
+
+    font-size:18px;
+
+}
+
+button{
+
+    font-size:18px;
+
+}
+
+}
+
+
+#loveDays .loveNumber{
+    font-size: 60px !important;
+    font-weight: 700;
+    color: white;
+}
+
+#loveDays{
+    text-align:center;
+ color:#ff8eb7;
+}
+
+
