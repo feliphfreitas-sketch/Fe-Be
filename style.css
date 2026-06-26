@@ -563,3 +563,41 @@ button{
     }
 
 }
+
+.clock{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+}
+
+.country{
+
+    text-align:center;
+
+    padding:15px;
+
+}
+
+.country h4{
+
+    color:#ff8eb7;
+
+    font-weight:500;
+
+}
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.15);
+
+    margin:15px 0;
+
+}

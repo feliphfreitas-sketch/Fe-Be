@@ -51,22 +51,25 @@ const quotes = [
 // Relógio
 // ==========================================
 
-function updateClock() {
+function updateClock(){
 
     const now = new Date();
 
-    document.getElementById("clock").innerHTML =
-        now.toLocaleTimeString("pt-BR");
+    const brazil = now.toLocaleTimeString("pt-BR",{
 
-    document.getElementById("date").innerHTML =
-        now.toLocaleDateString("pt-BR", {
+        timeZone:"America/Sao_Paulo"
 
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
+    });
 
-        });
+    const ireland = now.toLocaleTimeString("pt-BR",{
+
+        timeZone:"Europe/Dublin"
+
+    });
+
+    document.getElementById("clockBrazil").innerHTML = brazil;
+
+    document.getElementById("clockIreland").innerHTML = ireland;
 
 }
 
