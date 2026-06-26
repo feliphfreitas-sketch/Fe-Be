@@ -1,3 +1,29 @@
+function changeBackground(){
+
+    const hour = new Date().getHours();
+
+    let background;
+
+    if(hour >= 6 && hour < 12){
+
+        background = "linear-gradient(160deg,#74b9ff,#dfe6e9)";
+
+    }else if(hour >=12 && hour <18){
+
+        background = "linear-gradient(160deg,#4b79a1,#283e51)";
+
+    }else{
+
+        background = "linear-gradient(160deg,#081226,#10284d)";
+
+    }
+
+    document.body.style.background = background;
+
+}
+
+changeBackground();
+
 // ==========================================
 // 🤍 NÓS - Versão 1.0
 // Felipe ❤️ Beatriz

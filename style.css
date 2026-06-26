@@ -42,6 +42,8 @@ body{
     width:100%;
 
     max-width:900px;
+position:relative;
+z-index:2;
 
 }
 
@@ -132,6 +134,7 @@ body{
     box-shadow:0 20px 40px rgba(0,0,0,.25);
 
     transition:.3s;
+ z-index:-1;
 
 }
 
@@ -436,3 +439,127 @@ button{
 }
 
 
+.travel{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:22px;
+
+}
+
+.plane{
+
+    font-size:32px;
+
+}
+
+.stars{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.18;
+
+    animation:stars 4s ease-in-out infinite;
+
+    z-index:-2;
+
+}
+
+@keyframes stars{
+
+    0%{opacity:.12;}
+
+    50%{opacity:.28;}
+
+    100%{opacity:.12;}
+
+}
+
+/* ==========================
+   CORAÇÕES FLUTUANDO
+========================== */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-80px;
+
+    font-size:26px;
+
+    opacity:.15;
+
+    pointer-events:none;
+
+    animation: subir 18s linear infinite;
+
+    z-index:0;
+
+}
+
+.heart1{
+    left:8%;
+}
+
+.heart2{
+    left:28%;
+    animation-delay:4s;
+}
+
+.heart3{
+    left:50%;
+    animation-delay:8s;
+}
+
+.heart4{
+    left:72%;
+    animation-delay:12s;
+}
+
+.heart5{
+    left:90%;
+    animation-delay:16s;
+}
+
+@keyframes subir{
+
+    0%{
+
+        transform:translateY(0) rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:.15;
+
+    }
+
+    50%{
+
+        transform:translateY(-50vh) rotate(180deg);
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh) rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
