@@ -1,3 +1,11 @@
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    setDoc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
 function changeBackground(){
 
     const hour = new Date().getHours();
@@ -185,31 +193,49 @@ function updateLoveDays() {
 // ==========================================
 
 const textarea = document.getElementById("comment");
-
 const saveButton = document.getElementById("saveComment");
 
-const savedText = localStorage.getItem("comentario");
+async function carregarComentario() {
 
-if (savedText) {
+    const documento = await getDoc(
+        doc(db, "diario", "comentario_atual")
+    );
 
-    textarea.value = savedText;
+    if (documento.exists()) {
+
+        textarea.value = documento.data().texto;
+
+    }
 
 }
 
-saveButton.addEventListener("click", () => {
+carregarComentario();
 
-    localStorage.setItem(
-        "comentario",
-        textarea.value
+saveButton.addEventListener("click", async () => {
+
+    saveButton.innerHTML = "☁️ Salvando...";
+
+    await setDoc(
+        doc(db, "diario", "comentario_atual"),
+        {
+
+            texto: textarea.value,
+
+            autor: "Beatriz",
+
+            data: new Date().toLocaleDateString("pt-BR")
+
+        }
+
     );
 
-    saveButton.innerHTML = "✔ Salvo";
+    saveButton.innerHTML = "✅ Salvo!";
 
     setTimeout(() => {
 
         saveButton.innerHTML = "❤️ Salvar";
 
-    }, 2000);
+    },2000);
 
 });
 
