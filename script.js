@@ -278,3 +278,70 @@ setInterval(() => {
     updateCountdown();
 
 }, 1000);
+
+
+
+const DATA_INICIO = new Date("2026-06-28");
+
+const modal=document.getElementById("devocionalModal");
+
+document.getElementById("openDevocional").onclick=()=>{
+
+    modal.style.display="block";
+
+    carregarDevocional();
+
+}
+
+window.addEventListener("load", () => {
+
+    carregarDevocional();
+
+});
+
+document.getElementById("closeModal").onclick=()=>{
+
+    modal.style.display="none";
+
+}
+
+async function carregarDevocional(){
+
+    const resposta=await fetch("devocionais.csv");
+
+    const texto=await resposta.text();
+
+    const linhas=texto.split("\n");
+
+    const hoje=new Date();
+
+    const dias=Math.floor(
+
+        (hoje-DATA_INICIO)/(1000*60*60*24)
+
+    );
+
+    const linha=linhas[dias+1];
+
+    const dados=linha.split(";");
+
+    document.getElementById("livro").innerHTML=dados[0];
+
+    document.getElementById("trecho").innerHTML=dados[1];
+
+    document.getElementById("tema").innerHTML=dados[2];
+
+    document.getElementById("reflexao").innerHTML=dados[3];
+
+    document.getElementById("pergunta").innerHTML=dados[4];
+
+    document.getElementById("desafio").innerHTML=dados[5];
+
+    document.getElementById("oracao").innerHTML=dados[6];
+
+document.getElementById("resumoLivro").innerHTML = dados[0];
+
+document.getElementById("resumoTrecho").innerHTML =
+    '"' + dados[1] + '"';
+
+}	

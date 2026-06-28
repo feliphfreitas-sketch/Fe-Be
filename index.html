@@ -61,17 +61,16 @@
 
         <section class="card">
 
-            <h3>📖 Versículo do dia</h3>
+            <h3>📖 Devocional do Dia</h3>
 
-            <p class="verse">
+<button id="openDevocional" class="devocional-btn">
 
-                “Lâmpada para os meus pés é a tua palavra e luz para o meu caminho.”
+    <div id="resumoLivro"></div>
 
-            </p>
+    <div id="resumoTrecho"></div>
 
-            <span>
-                Salmo 119:105
-            </span>
+</button>
+
 
         </section>
 
@@ -156,6 +155,7 @@
 
         </section>
 
+
         <!-- Frase -->
 
         <section class="card">
@@ -186,4 +186,44 @@
 <div class="heart heart4">❤️</div>
 <div class="heart heart5">❤️</div>
 
+
+
+<div id="devocionalModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeModal">&times;</span>
+
+        <h2>📖 Devocional do Dia</h2>
+
+        <h4 id="livro"></h4>
+
+        <blockquote id="trecho"></blockquote>
+
+        <h3>🌱 Tema</h3>
+
+        <p id="tema"></p>
+
+        <h3>💭 Reflexão</h3>
+
+        <p id="reflexao"></p>
+
+        <h3>❓ Pergunta</h3>
+
+        <p id="pergunta"></p>
+
+        <h3>🎯 Desafio</h3>
+
+        <p id="desafio"></p>
+
+        <h3>🙏 Oração</h3>
+
+        <p id="oracao"></p>
+
+    </div>
+
+</div>
+
 </html>
+
+

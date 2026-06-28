@@ -601,3 +601,137 @@ hr{
     margin:15px 0;
 
 }
+
+
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:999;
+
+    overflow:auto;
+
+}
+
+.modal-content{
+
+    width:90%;
+
+    max-width:750px;
+
+    margin:40px auto;
+
+    background:#112347;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    color:white;
+
+    animation:fade .4s;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.modal h3{
+
+    margin-top:25px;
+
+    color:#ff8eb7;
+
+}
+
+blockquote{
+
+    font-size:22px;
+
+    margin:20px 0;
+
+    border-left:4px solid #ff8eb7;
+
+    padding-left:15px;
+
+    font-style:italic;
+
+}
+
+#closeModal{
+
+    float:right;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
+
+.devocional-btn{
+
+    width:100%;
+
+    padding:25px;
+
+    text-align:left;
+
+}
+
+.devocional-btn .titulo{
+
+    font-size:22px;
+
+    font-weight:1000;
+
+    margin-bottom:15px;
+
+}
+
+#resumoLivro{
+
+    font-size:18px;
+
+    color:#ffd1e3;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+#resumoTrecho{
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    color:white;
+
+    opacity:.9;
+
+}
