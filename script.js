@@ -213,31 +213,41 @@ carregarComentario();
 
 saveButton.addEventListener("click", async () => {
 
-    saveButton.innerHTML = "☁️ Salvando...";
+    try {
 
-    await setDoc(
-        doc(db, "diario", "comentario_atual"),
-        {
+        saveButton.innerHTML = "☁️ Salvando...";
 
-            texto: textarea.value,
+        await setDoc(
+            doc(db, "diario", "comentario_atual"),
+            {
+                texto: textarea.value,
+                autor: "Beatriz",
+                data: new Date().toLocaleDateString("pt-BR")
+            }
+        );
 
-            autor: "Beatriz",
+        console.log("1 - Gravou");
 
-            data: new Date().toLocaleDateString("pt-BR")
+        saveButton.innerHTML = "✅ Salvo!";
 
-        }
+        console.log("2 - Mudou botão");
 
-    );
+        setTimeout(() => {
 
-    saveButton.innerHTML = "✅ Salvo!";
+            console.log("3 - Voltou botão");
 
-    setTimeout(() => {
+            saveButton.innerHTML = "❤️ Salvar";
 
-        saveButton.innerHTML = "❤️ Salvar";
+        }, 2000);
 
-    },2000);
+    } catch (e) {
+
+        console.error(e);
+
+    }
 
 });
+
 
 // ==========================================
 // Frase aleatória
