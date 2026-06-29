@@ -735,3 +735,36 @@ blockquote{
     opacity:.9;
 
 }
+
+
+
+
+.check-item{
+
+    display:block;
+
+    margin:18px 0;
+
+    font-size:18px;
+
+}
+
+.check-item input{
+
+    transform:scale(1.4);
+
+    margin-right:10px;
+
+}
+
+#statusRemedio{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#ff8eb7;
+
+    font-weight:600;
+
+}

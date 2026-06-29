@@ -345,3 +345,34 @@ document.getElementById("resumoTrecho").innerHTML =
     '"' + dados[1] + '"';
 
 }	
+
+
+
+const manha = document.getElementById("manha");
+const noite = document.getElementById("noite");
+const statusRemedio = document.getElementById("statusRemedio");
+
+function atualizarStatus(){
+
+    let total = 0;
+
+    if(manha.checked) total++;
+
+    if(noite.checked) total++;
+
+    if(total === 2){
+
+        statusRemedio.innerHTML =
+        "💚 Parabéns! Você cuidou de você hoje.";
+
+    }else{
+
+        statusRemedio.innerHTML =
+        `💊 ${total} de 2 doses concluídas`;
+
+    }
+
+}
+
+manha.addEventListener("change", atualizarStatus);
+noite.addEventListener("change", atualizarStatus);
