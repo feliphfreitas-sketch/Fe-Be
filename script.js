@@ -30,7 +30,7 @@ function changeBackground(){
 
 }
 
-changeBackground();
+//changeBackground();
 
 // ==========================================
 // 🤍 NÓS - Versão 1.0
@@ -376,3 +376,78 @@ function atualizarStatus(){
 
 manha.addEventListener("change", atualizarStatus);
 noite.addEventListener("change", atualizarStatus);
+
+
+
+
+const intro = document.getElementById("intro");
+
+document
+.getElementById("enter")
+.onclick=()=>{
+
+intro.style.opacity="0";
+
+setTimeout(()=>{
+
+intro.remove();
+
+},1000);
+
+}
+
+
+const memories = document.querySelectorAll(".memory");
+
+const photoModal = document.getElementById("photoModal");
+
+const bigPhoto = document.getElementById("bigPhoto");
+
+memories.forEach(photo=>{
+
+    photo.onclick=()=>{
+
+        bigPhoto.src=photo.src;
+
+        photoModal.style.display="flex";
+
+    }
+
+});
+
+document.getElementById("closePhoto").onclick=()=>{
+
+    photoModal.style.display="none";
+
+}
+
+
+
+
+const abrirCarta = document.getElementById("abrirCarta");
+
+const modalCarta = document.getElementById("modalCarta");
+
+const fecharCarta = document.getElementById("fecharCarta");
+
+abrirCarta.onclick = () => {
+
+    modalCarta.style.display = "flex";
+
+}
+
+fecharCarta.onclick = () => {
+
+    modalCarta.style.display = "none";
+
+}
+
+window.onclick = (e)=>{
+
+    if(e.target==modalCarta){
+
+        modalCarta.style.display="none";
+
+    }
+
+}

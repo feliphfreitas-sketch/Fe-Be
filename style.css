@@ -9,8 +9,6 @@
 
 body{
 
-    background:linear-gradient(160deg,#081226,#10284d);
-
     color:#fff;
 
     min-height:100vh;
@@ -21,19 +19,21 @@ body{
 
     padding:40px 15px;
 
+    position:relative;
+
+    overflow-x:hidden;
+
+    font-family:'Poppins',sans-serif;
+
 }
 
-.background{
+background:
+linear-gradient(rgba(8,18,38,.82),rgba(8,18,38,.90)),
+url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80");
 
-    position:fixed;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle at top,#233d6d 0%,transparent 45%),
-    radial-gradient(circle at bottom,#1d2d53 0%,transparent 45%);
-
-    z-index:-1;
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 
 }
 
@@ -85,9 +85,9 @@ z-index:2;
 
 .profile{
 
-    width:170px;
+    width:200px;
 
-    height:170px;
+    height:200px;
 
     border-radius:50%;
 
@@ -98,6 +98,137 @@ z-index:2;
     border:5px solid white;
 
     box-shadow:0 0 30px rgba(255,255,255,.25);
+
+}
+
+
+.modal-carta{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    animation:fade .5s;
+
+}
+
+.papel{
+
+    width:90%;
+
+    max-width:800px;
+
+    max-height:85vh;
+
+    overflow:auto;
+
+    background:#fffdf5;
+
+    color:#4d3b2f;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    box-shadow:0 30px 70px rgba(0,0,0,.45);
+
+    position:relative;
+
+}
+
+.papel h1{
+
+    text-align:center;
+
+    color:#d65d8d;
+
+    margin-bottom:40px;
+
+}
+
+.texto-carta{
+
+    line-height:2;
+
+    font-size:18px;
+
+    text-align:justify;
+
+}
+
+.texto-carta p{
+
+    margin-bottom:22px;
+
+}
+
+#fecharCarta{
+
+    position:absolute;
+
+    right:25px;
+
+    top:18px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+
+.btn-romance{
+
+    background:#ff6ea5;
+
+    color:white;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:15px;
+
+}
+
+.btn-romance:hover{
+
+    transform:scale(1.05);
+
+    background:#ff4d8c;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
 
 }
 
@@ -119,22 +250,21 @@ z-index:2;
 
 .card{
 
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.10);
 
-    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(22px);
 
-    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.15);
 
-    border-radius:25px;
+    border-radius:28px;
 
-    padding:25px;
+    padding:28px;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
 
-    transition:.3s;
- z-index:-1;
+    transition:.4s;
 
 }
 
@@ -766,5 +896,354 @@ blockquote{
     color:#ff8eb7;
 
     font-weight:600;
+
+}
+
+
+
+
+
+.special-message{
+
+    text-align:center;
+
+    margin:40px 20px;
+
+    animation:fadeDown 2s;
+
+}
+
+.special-message h1{
+
+    font-size:42px;
+
+    color:#ff8eb7;
+
+    margin-bottom:15px;
+
+}
+
+.special-message p{
+
+    font-size:20px;
+
+    opacity:.95;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+
+
+
+.lights{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    pointer-events:none;
+
+}
+
+.lights span{
+
+    width:12px;
+
+    height:12px;
+
+    background:#ffd97d;
+
+    border-radius:50%;
+
+    box-shadow:0 0 20px #ffd97d;
+
+    animation:blink 2s infinite alternate;
+
+}
+
+@keyframes blink{
+
+from{opacity:.3;}
+
+to{opacity:1;}
+
+}
+
+
+
+.music-card{
+
+    margin-top:25px;
+
+    text-align:center;
+
+}
+
+.music-card button{
+
+    margin-top:15px;
+
+    background:#ff6ea5;
+
+}
+
+.music-card button:hover{
+
+    background:#ff4d8c;
+
+}
+
+
+
+
+
+.heart{
+
+    position:fixed;
+
+    bottom:-80px;
+
+    font-size:18px;
+
+    opacity:.08;
+
+    animation:subir 10s linear infinite;
+
+    pointer-events:none;
+
+    filter:blur(.3px);
+
+}
+
+
+
+
+
+#intro{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050b18;
+
+    z-index:99999;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.intro-content{
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:600px;
+
+}
+
+.intro-content h1{
+
+    font-size:90px;
+
+    animation:pulse 2s infinite;
+
+}
+
+.intro-content h2{
+
+    margin:20px 0;
+
+    color:#ff8eb7;
+
+}
+
+.intro-content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.12);}
+
+100%{transform:scale(1);}
+
+}
+
+
+
+.petal{
+
+    position:fixed;
+
+    top:-60px;
+
+    font-size:20px;
+
+    opacity:.35;
+
+    animation:fall linear infinite;
+
+    pointer-events:none;
+
+}
+
+
+
+.gallery-card{
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin-top:20px;
+
+}
+
+.memory{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:4px solid rgba(255,255,255,.7);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.memory:hover{
+
+    transform:scale(1.07) rotate(2deg);
+
+}
+
+
+#photoModal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.93);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+#bigPhoto{
+
+    width:90%;
+
+    max-width:700px;
+
+    border-radius:20px;
+
+}
+
+#closePhoto{
+
+    position:absolute;
+
+    top:30px;
+
+    right:40px;
+
+    color:white;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+}
+
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:url("background-romantico.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    filter:blur(8px);
+
+    transform:scale(1.08);
+
+    z-index:-3;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(6,12,30,.55),
+        rgba(6,12,30,.75)
+    );
+
+    z-index:-2;
 
 }
