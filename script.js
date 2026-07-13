@@ -6,6 +6,14 @@ import {
     getDoc
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+
+// Datas principais
+
+const inicioContagem = new Date("2026-06-17T00:00:00");
+const reencontro = new Date("2026-09-12T17:30:00");
+
+
+
 function changeBackground(){
 
     const hour = new Date().getHours();
@@ -157,6 +165,37 @@ function updateCountdown() {
     `;
 
 }
+
+
+
+function atualizarProgresso(){
+
+    const hoje = new Date();
+
+    const total =
+        reencontro.getTime() - inicioContagem.getTime();
+
+    const atual =
+        hoje.getTime() - inicioContagem.getTime();
+
+    let porcentagem = (atual / total) * 100;
+
+    if(porcentagem < 0) porcentagem = 0;
+    if(porcentagem > 100) porcentagem = 100;
+
+    document.getElementById("progressBar").style.width =
+        porcentagem + "%";
+
+    const diasRestantes =
+        Math.ceil((reencontro - hoje)/(1000*60*60*24));
+
+    document.getElementById("progressText").innerHTML =
+        `${porcentagem.toFixed(0)}% da espera concluída ❤️<br>`;
+}
+
+atualizarProgresso();
+
+
 
 // ==========================================
 // Dias de namoro
@@ -348,34 +387,86 @@ document.getElementById("resumoTrecho").innerHTML =
 
 
 
-const manha = document.getElementById("manha");
-const noite = document.getElementById("noite");
+
+// =============================
+// MEDICAMENTO
+// =============================
+
+const checkManha = document.getElementById("manha");
+const checkNoite = document.getElementById("noite");
 const statusRemedio = document.getElementById("statusRemedio");
 
-function atualizarStatus(){
+const hoje = new Date().toISOString().split("T")[0];
 
-    let total = 0;
+async function salvarMedicamento() {
 
-    if(manha.checked) total++;
+    await setDoc(doc(db, "medicamento", "status"), {
 
-    if(noite.checked) total++;
+        data: hoje,
 
-    if(total === 2){
+        manha: checkManha.checked,
 
-        statusRemedio.innerHTML =
-        "💚 Parabéns! Você cuidou de você hoje.";
+        noite: checkNoite.checked
 
-    }else{
+    });
 
-        statusRemedio.innerHTML =
-        `💊 ${total} de 2 doses concluídas`;
-
-    }
+    atualizarStatus();
 
 }
 
-manha.addEventListener("change", atualizarStatus);
-noite.addEventListener("change", atualizarStatus);
+async function carregarMedicamento() {
+
+    const snap = await getDoc(doc(db, "medicamento", "status"));
+
+    if (snap.exists()) {
+
+        const dados = snap.data();
+
+        if (dados.data === hoje) {
+
+            checkManha.checked = dados.manha;
+
+            checkNoite.checked = dados.noite;
+
+        } else {
+
+            checkManha.checked = false;
+
+            checkNoite.checked = false;
+
+        }
+
+    }
+
+    atualizarStatus();
+
+}
+
+function atualizarStatus() {
+
+    let total = 0;
+
+    if (checkManha.checked) total++;
+
+    if (checkNoite.checked) total++;
+
+    statusRemedio.innerHTML =
+        `💊 ${total} de 2 doses concluídas`;
+
+}
+
+checkManha.addEventListener("change", salvarMedicamento);
+
+checkNoite.addEventListener("change", salvarMedicamento);
+
+carregarMedicamento();
+
+
+
+
+
+
+
 
 
 
@@ -425,29 +516,73 @@ document.getElementById("closePhoto").onclick=()=>{
 
 
 const abrirCarta = document.getElementById("abrirCarta");
-
 const modalCarta = document.getElementById("modalCarta");
-
 const fecharCarta = document.getElementById("fecharCarta");
 
-abrirCarta.onclick = () => {
+if (abrirCarta && modalCarta && fecharCarta) {
 
-    modalCarta.style.display = "flex";
+    abrirCarta.onclick = () => {
+        modalCarta.style.display = "flex";
+    };
+
+    fecharCarta.onclick = () => {
+        modalCarta.style.display = "none";
+    };
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modalCarta) {
+            modalCarta.style.display = "none";
+        }
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function carregarClima(){
+
+    // Osasco
+    const brasil = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=-23.5329&longitude=-46.7917&current_weather=true"
+    );
+
+    const dadosBR = await brasil.json();
+
+    // Dublin
+    const irlanda = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=53.3498&longitude=-6.2603&current_weather=true"
+    );
+
+    const dadosIE = await irlanda.json();
+
+    document.getElementById("tempBR").innerHTML =
+    Math.round(dadosBR.current_weather.temperature)+"°";
+
+    document.getElementById("tempIE").innerHTML =
+    Math.round(dadosIE.current_weather.temperature)+"°";
 
 }
 
-fecharCarta.onclick = () => {
-
-    modalCarta.style.display = "none";
-
-}
-
-window.onclick = (e)=>{
-
-    if(e.target==modalCarta){
-
-        modalCarta.style.display="none";
-
-    }
-
-}
+carregarClima();
