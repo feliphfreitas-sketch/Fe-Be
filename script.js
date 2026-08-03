@@ -10,7 +10,15 @@ import {
 // Datas principais
 
 const inicioContagem = new Date("2026-06-17T00:00:00");
-const reencontro = new Date("2026-09-12T17:30:00");
+const reencontro = new Date("2026-08-30T17:30:00");
+
+
+
+// ========================
+// DATAS DO PROJETO
+// ========================
+
+const inicioViagem = new Date("2026-06-17T00:00:00");
 
 
 
@@ -46,7 +54,7 @@ function changeBackground(){
 // ==========================================
 
 // Datas
-const reunionDate = new Date("2026-09-12T17:30:00");
+const reunionDate = new Date("2026-08-30T17:30:00");
 const datingDate = new Date("2026-04-03T00:00:00");
 
 // Frases
@@ -516,26 +524,103 @@ document.getElementById("closePhoto").onclick=()=>{
 
 
 const abrirCarta = document.getElementById("abrirCarta");
+
 const modalCarta = document.getElementById("modalCarta");
+
 const fecharCarta = document.getElementById("fecharCarta");
 
-if (abrirCarta && modalCarta && fecharCarta) {
+abrirCarta.onclick = () => {
 
-    abrirCarta.onclick = () => {
-        modalCarta.style.display = "flex";
-    };
-
-    fecharCarta.onclick = () => {
-        modalCarta.style.display = "none";
-    };
-
-    window.addEventListener("click", (e) => {
-        if (e.target === modalCarta) {
-            modalCarta.style.display = "none";
-        }
-    });
+    modalCarta.style.display = "flex";
 
 }
+
+fecharCarta.onclick = () => {
+
+    modalCarta.style.display = "none";
+
+}
+
+window.onclick = (e)=>{
+
+    if(e.target==modalCarta){
+
+        modalCarta.style.display="none";
+
+    }
+
+}
+
+
+
+
+
+function atualizarAviao(){
+
+    const hoje = new Date();
+
+    const total =
+        reencontro - inicioViagem;
+
+    const atual =
+        hoje - inicioViagem;
+
+    let porcentagem =
+        (atual / total);
+
+    if(porcentagem < 0) porcentagem = 0;
+
+    if(porcentagem > 1) porcentagem = 1;
+
+    const largura = 260;
+
+    document.getElementById("aviao").style.left =
+        (largura * porcentagem) + "px";
+
+    document.getElementById("textoViagem").innerHTML =
+        "Cada dia nos deixa um pouquinho mais perto do nosso abraço. ❤️";
+
+}
+
+atualizarAviao();
+
+
+
+
+
+
+const btnAbraco = document.getElementById("abracoBtn");
+const modalAbraco = document.getElementById("modalAbraco");
+const fecharAbraco = document.getElementById("fecharAbraco");
+
+btnAbraco.onclick = ()=>{
+
+    modalAbraco.style.display="flex";
+
+}
+
+fecharAbraco.onclick = ()=>{
+
+    modalAbraco.style.display="none";
+
+}
+
+window.addEventListener("click",(e)=>{
+
+    if(e.target==modalAbraco){
+
+        modalAbraco.style.display="none";
+
+    }
+
+});
+
+
+
+
+
+
+
 
 
 

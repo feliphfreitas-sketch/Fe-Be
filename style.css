@@ -1306,3 +1306,50 @@ body::after{
     opacity:.8;
 
 }
+
+
+
+
+
+
+.viagem{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:20px 0;
+
+}
+
+.linha{
+
+    position:relative;
+
+    width:260px;
+
+    height:4px;
+
+    background:#ffffff55;
+
+    border-radius:50px;
+
+}
+
+#aviao{
+
+    position:absolute;
+
+    top:-16px;
+
+    left:0;
+
+    font-size:26px;
+
+    transition:1s;
+
+}
